@@ -102,12 +102,26 @@ def startMoodSelectionScreen(gui):
             mood = "Content"
         elif var.get() == 3:
             mood = "Un-Happy"
+        elif var.get() == 4:
+            mood = "Laughing"
         R1.pack_forget()
         R2.pack_forget()
         R3.pack_forget()
         startDescriptionInputScreen(gui)
 
     var = IntVar()
+
+    happyImage = PhotoImage(file = "LAUGHING.GIF")
+    R1 = Radiobutton(gui,
+                     variable = var,
+                     value = 4,
+                     command = moodSelectionHandler)
+    R1.config(image = happyImage,
+              width="40",
+              height="40",
+              bd=0)
+    R1.image = happyImage
+    R1.pack( anchor = CENTER )
 
     happyImage = PhotoImage(file = "Happy.GIF")
     R1 = Radiobutton(gui,
